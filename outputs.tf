@@ -13,17 +13,8 @@ output "private_subnet_url" {
   description = "Private subnet link"
 }
 
-output "private_subnet_state" {
-  value = google_compute_subnetwork.private_subnet.state
-  description = "Private subnet state"
-}
-
 output "public_subnet_url" {
   value = google_compute_subnetwork.public_subnet.self_link
   description = "Public subnet link"
 }
 
-output "public_subnet_state" {
-  value = google_compute_subnetwork.public_subnet.state
-  description = "Public subnet state"
-}

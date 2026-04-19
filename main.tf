@@ -28,7 +28,7 @@ resource "google_compute_network" "my_vpc" {
 
 resource "google_compute_subnetwork" "public_subnet" {
   name = var.public_subnet_name
-  network = var.vpc_name
+  network = google_compute_network.my_vpc.id
   region = var.region_name
   allow_subnet_cidr_routes_overlap = var.subnet_cidr_overlap
   private_ip_google_access = false
@@ -45,7 +45,7 @@ resource "google_compute_subnetwork" "public_subnet" {
 
 resource "google_compute_subnetwork" "private_subnet" {
   name = var.private_subnet_name
-  network = var.vpc_name
+  network = google_compute_network.my_vpc.id
   region = var.region_name
   allow_subnet_cidr_routes_overlap = var.subnet_cidr_overlap
   private_ip_google_access = true
