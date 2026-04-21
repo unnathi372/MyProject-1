@@ -18,3 +18,12 @@ output "public_subnet_url" {
   description = "Public subnet link"
 }
 
+output "firewall_url" {
+  value = google_compute_firewall.allow_ssh_firewall.self_link
+  description = "Allow ssh to bastion Firewall link"
+}
+
+output "vm_url" {
+  value = google_compute_instance.my_vm.self_link
+  description = "Bastion VM link"
+}

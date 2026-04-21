@@ -102,3 +102,58 @@ variable "vpc_routing" {
   type = string
   default = "REGIONAL"
 }
+
+variable "vm_name" {
+  type = string
+  default = "test-bastion"
+}
+
+variable "vm_machine_type" {
+  type = string
+  default = "e2-small"
+}
+
+variable "bootdisk_device_name" {
+  type = string
+  default = "test-disk"
+}
+
+variable "bootdisk_mode" {
+  type = string
+  default = "READ_WRITE"
+}
+
+variable "vm_image" {
+  type = string
+  default = "debian-cloud/debian-12"
+}
+
+variable "disk_type" {
+  type = string
+  default = "pd-balanced"
+}
+
+variable "firewall_name" {
+  type = string
+  default = "allow-ssh-firewall"
+}
+
+variable "fwallow_protocol" {
+  type = string
+  default = "tcp"
+}
+
+variable "fwallow_ports" {
+  type = list(string)
+  default = ["22","8000-8100"]
+}
+
+variable "fw_direction" {
+  type = string
+  default = "INGRESS"
+}
+
+variable "fw_ranges" {
+  type = list(string)
+  default = ["35.235.240.0/20"]
+}
