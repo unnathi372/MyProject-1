@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add common binary paths to the current script's session
+export PATH=$PATH:/usr/sbin:/sbin
+
 # Check if Nginx binary exists in the PATH
 if command -v nginx > /dev/null 2>&1; then
     echo "NGINX is already installed. Skipping installation."

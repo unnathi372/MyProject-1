@@ -12,6 +12,10 @@ variable "zone_name" {
   default = "asia-south1-a"
 }
 
+variable "zoneb_name" {
+  type = string
+}
+
 variable "bucket_name" {
   type = string
   default = "my_bucket-001"
@@ -156,4 +160,34 @@ variable "fw_direction" {
 variable "fw_ranges" {
   type = list(string)
   default = ["35.235.240.0/20"]
+}
+
+variable "router_name" {
+  type = string
+  default = "test-router"
+}
+
+variable "nat_name" {
+  type = string
+  default = "test-nat"
+}
+
+variable "nat_tier" {
+  type = string
+  default = "STANDARD"
+}
+
+variable "nat_type" {
+  type = string
+  default = "PUBLIC"
+}
+
+variable "nat_endpoint" {
+  type = list(string)
+  default = ["ENDPOINT_TYPE_VM"]
+}
+
+variable "nat_iprange" {
+  type = list(string)
+  default = ["ALL_IP_RANGES"]
 }

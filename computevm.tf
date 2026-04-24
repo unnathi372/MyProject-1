@@ -1,6 +1,6 @@
 resource "google_compute_instance" "my_vm" {
   name = var.vm_name
-  zone = var.zone_name
+  zone = var.zoneb_name
   can_ip_forward = false
   machine_type = var.vm_machine_type
   network_interface {

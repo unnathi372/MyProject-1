@@ -27,3 +27,9 @@ output "vm_url" {
   value = google_compute_instance.my_vm.self_link
   description = "Bastion VM link"
 }
+
+output "router_url" {
+  value = google_compute_router.myrouter.self_link
+  description = "Router link"
+}
+
