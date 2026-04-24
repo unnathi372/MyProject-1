@@ -6,6 +6,7 @@ terraform {
       version = ">=7.0"
     }
   }
+backend "gcs" { }
 }
 
 provider "google" {
@@ -13,3 +14,4 @@ provider "google" {
   region  = var.region_name
   zone    = var.zone_name
 }
+

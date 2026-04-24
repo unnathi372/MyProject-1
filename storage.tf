@@ -9,6 +9,9 @@ resource "google_storage_bucket" "my_bucket" {
   }
   lifecycle_rule {
     action { type = "Delete" }
-    condition { age = var.object_delete_age }
+    condition { 
+      age = var.object_delete_age 
+      num_newer_versions = var.no_of_versions
+    }
   }
 }

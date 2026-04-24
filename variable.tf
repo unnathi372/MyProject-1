@@ -1,3 +1,5 @@
+# --- Project ---
+
 variable "project_name" {
   type = string
 }
@@ -15,6 +17,8 @@ variable "zone_name" {
 variable "zoneb_name" {
   type = string
 }
+
+# --- Storage bucket ---
 
 variable "bucket_name" {
   type = string
@@ -40,30 +44,40 @@ variable "object_delete_age" {
   type = number
   default = 30
 }
+variable "no_of_versions" {
+  type = number
+  default = 1
+}
+
+# --- Network ---
 
 variable "vpc_name" {
   type = string
   default = "test-network"
 }
 
-variable "public_subnet_name" {
+variable "vpc_routing" {
   type = string
-  default = "test-public-subnet"
+  default = "REGIONAL"
 }
 
-variable "private_subnet_name" {
-  type = string
-  default = "test-private-subnet"
-}
+# --- Sub Network ---
 
 variable "subnet_cidr_overlap" {
   type = bool
   default = false
 }
 
-variable "subnet_ipv6_disable_access" {
+variable "subnet_purpose" {
   type = string
-  default = "DISABLE_GOOGLE_ACCESS"
+  default = "PRIVATE"
+}
+
+# --- Public Sub Network ---
+
+variable "public_subnet_name" {
+  type = string
+  default = "test-public-subnet"
 }
 
 variable "subnet_ipv6_enable_access" {
@@ -71,9 +85,9 @@ variable "subnet_ipv6_enable_access" {
   default = "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE"
 }
 
-variable "subnet_purpose" {
+variable "dual_stack" {
   type = string
-  default = "PRIVATE"
+  default = "IPV4_IPV6"
 }
 
 variable "public_subnet_pri_cidr" {
@@ -84,6 +98,23 @@ variable "public_subnet_sec_cidr" {
   type = string
 }
 
+# --- Private Sub Network ---
+
+variable "private_subnet_name" {
+  type = string
+  default = "test-private-subnet"
+}
+
+variable "subnet_ipv6_disable_access" {
+  type = string
+  default = "DISABLE_GOOGLE_ACCESS"
+}
+
+variable "ipv4_stack" {
+  type = string
+  default = "IPV4_ONLY"
+}
+
 variable "private_subnet_pri_cidr" {
   type = string
 }
@@ -92,20 +123,7 @@ variable "private_subnet_sec_cidr" {
   type = string
 }
 
-variable "ipv4_stack" {
-  type = string
-  default = "IPV4_ONLY"
-}
-
-variable "dual_stack" {
-  type = string
-  default = "IPV4_IPV6"
-}
-
-variable "vpc_routing" {
-  type = string
-  default = "REGIONAL"
-}
+# --- Compute instance ---
 
 variable "vm_name" {
   type = string
@@ -137,6 +155,8 @@ variable "disk_type" {
   default = "pd-balanced"
 }
 
+# --- Firewall ---
+
 variable "firewall_name" {
   type = string
   default = "allow-ssh-firewall"
@@ -161,6 +181,8 @@ variable "fw_ranges" {
   type = list(string)
   default = ["35.235.240.0/20"]
 }
+
+# --- Cloud NAT and router ---
 
 variable "router_name" {
   type = string
@@ -187,7 +209,7 @@ variable "nat_endpoint" {
   default = ["ENDPOINT_TYPE_VM"]
 }
 
-variable "nat_iprange" {
+variable "nat_source_ip_ranges" {
   type = list(string)
   default = ["ALL_IP_RANGES"]
 }
