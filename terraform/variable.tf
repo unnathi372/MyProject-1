@@ -155,6 +155,11 @@ variable "disk_type" {
   default = "pd-balanced"
 }
 
+variable "vm_type" {
+  type = string
+  default = "STANDARD"
+}
+
 # --- Firewall ---
 
 variable "firewall_name" {

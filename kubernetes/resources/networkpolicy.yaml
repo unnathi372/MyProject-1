@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: prod-networkpolicy
+  namespace: prod
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-prod
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend

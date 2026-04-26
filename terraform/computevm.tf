@@ -17,6 +17,11 @@ resource "google_compute_instance" "my_vm" {
       type = var.disk_type
     }
   }
+  scheduling {
+    preemptible = true
+    provisioning_model = var.vm_type
+    automatic_restart = false
+  }
   metadata = {
     enable-oslogin = true
     startup-script = file("${path.module}/ngnix_install.sh")

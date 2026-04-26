@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pdb-prod
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: nginx-prod
+  minAvailable: 1
